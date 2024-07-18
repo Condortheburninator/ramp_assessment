@@ -24,7 +24,8 @@ ______  ___  ___  _________
 
 ## 🎯 Approach
 1. load data
-1. data quality checks
+1. EDA
+1. data quality checks - is there a row for every day in january?
 1. aggregate (`SUM`) the transaction_amount to a day level in a cte
 1. build out rolling average
 1. add date filter (just in case)
@@ -117,6 +118,7 @@ ORDER BY
 ## :book: Bibliography
 
 - [ascii generator](https://patorjk.com/software/taag/#p=display&f=Doom&t=RAMP)
+- [duckdb INSERT guide](https://duckdb.org/docs/data/insert)
 
 ---
 
