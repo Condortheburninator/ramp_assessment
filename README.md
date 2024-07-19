@@ -43,7 +43,7 @@ ______  ___  ___  _________
 
 1. looks like `transaction_time` is unique
 1. huge range of values in `transaction_amount`
-1 no `NULL`s
+1. no `NULL`s
 
 ![EDA](./analysis/eda.png)
 
