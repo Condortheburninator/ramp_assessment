@@ -16,6 +16,7 @@ ______  ___  ___  _________
 ## :books: Table of Contents
 
 - [Approach](#-approach)
+- [EDA & Data Quality](#mag_right-eda--data-quality)
 - [Answer](#white_check_mark-answer)
 - [Next Steps](#next_track_button-next-steps)
 - [Bibliography](#book-bibliography)
@@ -33,6 +34,71 @@ ______  ___  ___  _________
     1. aggregate (`SUM`) the transaction_amount to a day level in a cte
     1. build out rolling average
 1. profit :dollar: :dollar: :dollar: !!!
+
+---
+
+## :mag_right: EDA & Data Quality
+
+### EDA
+
+1. looks like `transaction_time` is unique
+1. huge range of values in `transaction_amount`
+1 no `NULL`s
+
+![EDA](./analysis/eda.png)
+
+
+
+### Data Quality
+
+1. any dates with missing records --> answer is no
+
+| transaction_date | count_star() |
+| ---------------- | ------------ |
+| 2021-01-01       |            3 |
+| 2021-01-02       |            3 |
+| 2021-01-03       |            3 |
+| 2021-01-04       |            4 |
+| 2021-01-05       |            4 |
+| 2021-01-06       |            4 |
+| 2021-01-07       |            4 |
+| 2021-01-08       |            4 |
+| 2021-01-09       |            3 |
+| 2021-01-10       |            3 |
+| 2021-01-11       |            4 |
+| 2021-01-12       |            4 |
+| 2021-01-13       |            4 |
+| 2021-01-14       |            4 |
+| 2021-01-15       |            4 |
+| 2021-01-16       |            3 |
+| 2021-01-17       |            3 |
+| 2021-01-18       |            4 |
+| 2021-01-19       |            4 |
+| 2021-01-20       |            4 |
+| 2021-01-21       |            5 |
+| 2021-01-22       |            4 |
+| 2021-01-23       |            3 |
+| 2021-01-24       |            3 |
+| 2021-01-25       |            4 |
+| 2021-01-26       |            4 |
+| 2021-01-27       |            4 |
+| 2021-01-28       |            4 |
+| 2021-01-29       |            4 |
+| 2021-01-30       |            3 |
+| 2021-01-31       |            3 |
+
+
+1. curious to understand the distribution of records (for fun)
+    1. looks like the norm is 3-4 records/day
+    1. with 5 being an outlier on the 21st
+
+
+| transaction_count | count(transaction_date) |
+| ----------------- | ----------------------- |
+|                 3 |                      11 |
+|                 4 |                      19 |
+|                 5 |                       1 |
+
 
 ---
 
@@ -126,6 +192,12 @@ ORDER BY
         transaction_time ASC;
 
 ```
+
+---
+
+## :next_track_button: Next Steps
+
+- [ ] distribution of transaction amounts
 
 ---
 
